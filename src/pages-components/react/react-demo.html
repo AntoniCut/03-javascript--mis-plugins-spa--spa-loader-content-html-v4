@@ -1,0 +1,67 @@
+<!--
+    *  -----  /react-demo.html  --  /src/pages-components/react/react-demo.html  -----
+-->
+
+
+<div class="react-demo">
+
+
+    <!--  -----  Hero  -----  -->
+    <div class="react-page__hero">
+        <div class="react-page__hero-badge">
+            <span class="react-page__hero-tag" aria-hidden="true">⚛</span>
+            <h3 class="react-page__hero-title">React</h3>
+            <p class="react-page__hero-subtitle">Demo de scripts SPA V3.1</p>
+        </div>
+    </div>
+
+
+    <!--  -----  Intro  -----  -->
+    <section class="react-page__intro">
+        <p class="react-page__intro-text">
+            Este componente se inyecta con <strong>pagesComponents</strong> del plugin
+            <strong>spa-loader-content-html v3.1</strong>. Los scripts de la ruta se cargan
+            en la <strong>Fase 3</strong> (después de la View Transition), cuando el DOM ya
+            está mutado y los contenedores destino existen.
+        </p>
+    </section>
+
+
+    <!--  -----  Demo CJS  -----  -->
+    <section class="react-page__features" data-react-demo="cjs">
+
+        <h3 class="react-page__features-title">Demo Scripts CJS</h3>
+
+        <p class="react-page__intro-text" data-react-demo-status="cjs">
+            Esperando <code>react-page.cjs.js</code>…
+        </p>
+
+        <div class="react-page__features-grid" data-react-demo-target="cjs"></div>
+
+    </section>
+
+
+    <!--  -----  Demo ESM  -----  -->
+    <section class="react-page__features" data-react-demo="esm">
+
+        <h3 class="react-page__features-title">Demo Scripts ESM</h3>
+
+        <p class="react-page__intro-text" data-react-demo-status="esm">
+            Esperando <code>react-page.esm.js</code>…
+        </p>
+
+        <div class="react-page__features-grid" data-react-demo-target="esm"></div>
+
+    </section>
+
+
+    <!--  -----  Tags / conceptos (renderizados por ESM)  -----  -->
+    <section class="react-page__concepts-section">
+
+        <h3 class="react-page__concepts-title">Hooks React renderizados por ESM</h3>
+
+        <ul class="react-page__concepts" data-react-demo-target="tags"></ul>
+
+    </section>
+
+</div>

@@ -1,0 +1,74 @@
+/*
+    *  --------------------------------------------------------------------------------  *
+    *  -----  /_layout.scss  --  /src/styles/scss/components/layout/_layout.scss  -----  *
+    *  --------------------------------------------------------------------------------  *
+*/
+
+@use '../../base/variables' as var;
+
+
+//  -----  Variables  -----
+$shadow-body:    inset 50px 50px 100px rgb(209, 220, 235);
+$layout-bg-btn:         cornflowerblue;
+$color-btn-text: var.$color-white;
+$layout-bg-btn-hover:   rgb(24, 56, 116);
+
+
+html {
+    font-size: 10px;
+}
+
+body {
+    min-width: 100%;
+    min-height: 100dvh;
+    font-family: var.$font-primary;
+    font-style: normal;
+    font-size: 1.6rem;
+    box-shadow: $shadow-body;
+}
+
+.layout {
+    
+    width: 100vw;
+    min-height: 100dvh;
+
+    position: absolute;
+    overflow-x: hidden;
+    inset: 0;
+    z-index: 0;
+    overflow-y: auto;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+.layout.fade-in {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.btn__container {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+button {
+    padding: 1rem 2rem;
+    background-color: $layout-bg-btn;
+    color: $color-btn-text;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: $layout-bg-btn-hover;
+}

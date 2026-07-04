@@ -1,0 +1,53 @@
+/*
+    *  ------------------------------------------------------------------------------------------  *
+    *  -----  /_layout-main.scss  --  /src/styles/scss/components/layout/_layout-main.scss  -----  *
+    *  ------------------------------------------------------------------------------------------  *
+*/
+
+
+@use '../../base/variables' as var;
+
+
+//  -----  Variables  -----
+$color-black:       #000000;
+$shadow-main-title: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+// Sección img-script
+$bg-text:              #c6d6f3;
+$border-script:        #34495e;
+$bg-script:            #1e1e1e;
+$bg-script-track:      #2c3e50;
+$bg-script-thumb:      linear-gradient(180deg, #f1c40f, #2980b9);
+$bg-script-thumb-hover: linear-gradient(180deg, #f39c12, #3498db);
+
+
+.layout__main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main__container {
+    width: 100%;
+    max-width: 120rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5rem;
+    padding: 3rem 1rem;
+    margin-bottom: 10rem;
+}
+
+.main__title {
+    width: 100%;
+    padding: 2rem;
+    font-size: 3rem;
+    font-weight: 600;
+    color: $color-black;
+    background-color: var.$color-primary;
+    text-shadow: $shadow-main-title;
+    text-align: center;
+    border-radius: 5px;
+}

@@ -1,0 +1,269 @@
+/*
+    *  ----------------------------------------------------------------------------------------------  *
+    *  -----  /_layout-header.scss  --  /src/styles/scss/components/layout/_layout-header.scss  -----  *
+    *  ----------------------------------------------------------------------------------------------  *
+*/
+
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mix;
+
+
+//  -----  Variables  -----
+$bg-brand:            linear-gradient(160deg, rgba(var.$color-navy, 0.78), rgba(var.$bg-dark, 0.56));
+$border-brand:        rgba(var.$color-white, 0.24);
+$shadow-brand:        0 18px 45px rgba(var.$color-navy, 0.18);
+$bg-logo-shell:       rgba(var.$color-white, 0.14);
+$shadow-logo-shell:   inset 0 0 0 1px rgba(var.$color-white, 0.12);
+$shadow-logo-hover:   0 24px 50px rgba(var.$color-navy, 0.24);
+$border-logo-hover:   rgba(var.$color-white, 0.42);
+$bg-content:          linear-gradient(160deg, rgba(var.$color-white, 0.92), rgba(230, 238, 250, 0.82));
+$shadow-content:      0 24px 60px rgba(var.$bg-dark, 0.2);
+$color-eyebrow:       rgba(var.$color-light, 0.72);
+$bg-orb-before:       rgba(var.$color-white, 0.35);
+$bg-orb-after:        rgba(var.$color-focus, 0.25);
+$bg-badge:            rgba(0, 122, 204, 0.12);
+$border-dynamic-title: rgba(var.$color-navy, 0.12);
+
+
+.layout__header {
+    position: relative;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.header__container {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 7rem 1.6rem 2.4rem;
+    text-align: center;
+    background: var.$bg-gradient-header;
+    background-size: cover;
+    box-shadow: var.$shadow-outer;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(8px);
+        opacity: 0.45;
+        pointer-events: none;
+    }
+
+    &::before {
+        top: -3rem;
+        left: -4rem;
+        width: 18rem;
+        height: 18rem;
+        background: $bg-orb-before;
+    }
+
+    &::after {
+        right: -3rem;
+        bottom: -5rem;
+        width: 22rem;
+        height: 22rem;
+        background: $bg-orb-after;
+    }
+
+    @include mix.tablet {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 2.4rem;
+        padding: 3rem 2.4rem 3rem 9rem;
+        text-align: left;
+    }
+
+    @include mix.desktopSM {
+        padding-right: 3.2rem;
+    }
+}
+
+.header__brand {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 32rem;
+    min-height: 15rem;
+    padding: 1.6rem;
+    border: 1px solid $border-brand;
+    border-radius: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    text-decoration: none;
+    color: var.$color-light;
+    background: $bg-brand;
+    box-shadow: $shadow-brand;
+    backdrop-filter: blur(12px);
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+
+    
+    @include mix.tablet {
+        width: 100%;
+        flex: 0 0 20rem;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+    }
+}
+
+.header__brand--spa {
+    @include mix.tablet {
+        order: 1;
+    }
+}
+
+.header__brand--javascript {
+    @include mix.tablet {
+        order: 3;
+    }
+}
+
+.header__logo-shell {
+    width: 6rem;
+    height: 6rem;
+    flex-shrink: 0;
+    border-radius: 1.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: $bg-logo-shell;
+    box-shadow: $shadow-logo-shell;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-logo-hover;
+        border-color: $border-logo-hover;
+    }
+}
+
+.header__logo-javascript {
+    width: 4rem;
+    height: 4rem;
+    transition: transform 220ms ease;
+}
+
+.header__brand:hover .header__logo-javascript {
+    transform: scale(1.08);
+}
+
+.header__brand-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.header__eyebrow {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.16rem;
+    text-transform: uppercase;
+    color: $color-eyebrow;
+}
+
+.header__brand-name {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var.$color-white;
+}
+
+.header__content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 72rem;
+    padding: 2rem 1.8rem;
+    border-radius: 2.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: $bg-content;
+    box-shadow: $shadow-content;
+    color: var.$color-navy;
+
+    @include mix.tablet {
+        order: 2;
+        flex: 1 1 auto;
+        align-items: flex-start;
+        padding: 2.6rem 3rem;
+    }
+}
+
+.header__badge {
+    padding: 0.8rem 1.4rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.14rem;
+    text-transform: uppercase;
+    color: var.$color-primary;
+    background: $bg-badge;
+}
+
+.header__title {
+    width: 100%;
+    margin: 0;
+    font-size: 2.6rem;
+    text-align: center;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var.$color-primary;
+    text-wrap: balance;
+
+    @include mix.tablet {
+        font-size: 3.6rem;
+    }
+}
+
+.header__dynamic-title {
+    width: 100%;
+    margin: 0;
+    padding-top: 1.2rem;
+    border-top: 1px solid $border-dynamic-title;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    color: var.$color-secondary;
+
+    &:empty {
+        display: none;
+    }
+
+    @include mix.tablet {
+        font-size: 1.8rem;
+    }
+
+    @include mix.desktopSM {
+         font-size: 2rem;
+    }
+}
+
+.navbar__btn-open,
+.navbar__btn-close {
+    top: 1.6rem;
+    left: 1.6rem;
+    border: none;
+    outline: none;
+
+    @include mix.tablet {
+        top: 2.4rem;
+        left: 2.4rem;
+    }
+}

@@ -1,0 +1,334 @@
+/*
+    *  ----------------------------------------------------------------  *
+    *  -----  /react-page.scss  --  /src/scss/pages/react-page.scss  -----  *
+    *  ----------------------------------------------------------------  *
+*/
+
+@use '../base/variables' as var;
+@use '../base/mixins' as mx;
+
+
+//  -----  Variables  -----
+$react-primary:          var.$color-secondary;
+$react-secondary:        #149eca;
+$react-hero-end:         #78e4f5;
+$react-accent-bg:        #f0f9fb;
+$react-text:             #2c3e50;
+$react-text-light:       #5d6d7e;
+$react-card-bg:          var.$color-white;
+$react-card-border:      rgba($react-primary, 0.2);
+$react-card-shadow:      0 4px 16px rgba($react-primary, 0.1);
+$react-card-shadow-hover: 0 8px 28px rgba($react-primary, 0.2);
+$react-tag-bg:           rgba($react-primary, 0.08);
+$react-tag-color:        $react-primary;
+$react-tag-border:       rgba($react-primary, 0.3);
+$color-white:            var.$color-white;
+$shadow-hero-title:      var.$shadow-text;
+
+
+//  -----  Layout Header  -----
+.header__dynamic-title {
+    color: $react-primary;
+}
+
+
+//  -----  react-page  -----
+
+.main__title {
+    color: $react-primary;
+    background: var.$bg-gradient-header;
+}
+
+.react-page,
+.react-demo {
+
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+
+
+    //  -----  Hero  -----
+    &__hero {
+        width: 100%;
+        min-height: 18rem;
+        background: linear-gradient(135deg, $react-primary 0%, $react-secondary 60%, $react-hero-end 100%);
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem 2rem;
+
+        @include mx.tablet {
+            min-height: 24rem;
+            padding: 4rem 3rem;
+        }
+
+        @include mx.desktop {
+            min-height: 28rem;
+        }
+
+        @include mx.desktopLG {
+            min-height: 32rem;
+        }
+    }
+
+    &__hero-badge {
+        text-align: center;
+        color: $color-white;
+    }
+
+    &__hero-tag {
+        display: block;
+        font-size: 4rem;
+        font-weight: 800;
+        font-family: monospace;
+        letter-spacing: 0.3rem;
+        opacity: 0.9;
+
+        @include mx.tablet {
+            font-size: 6rem;
+        }
+
+        @include mx.desktop {
+            font-size: 8rem;
+        }
+    }
+
+    &__hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 0.6rem 0 0.4rem;
+        text-shadow: $shadow-hero-title;
+
+        @include mx.tablet {
+            font-size: 4.5rem;
+        }
+
+        @include mx.desktop {
+            font-size: 5.5rem;
+        }
+    }
+
+    &__hero-subtitle {
+        font-size: 1.4rem;
+        opacity: 0.85;
+        letter-spacing: 0.05rem;
+
+        @include mx.tablet {
+            font-size: 1.8rem;
+        }
+
+        @include mx.desktopLG {
+            font-size: 2rem;
+        }
+    }
+
+
+    //  -----  Intro  -----
+    &__intro {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        background-color: $react-accent-bg;
+        border-left: 5px solid $react-primary;
+        border-radius: 0 0.8rem 0.8rem 0;
+        padding: 2.5rem;
+    }
+
+    &__intro-text {
+        font-size: 1.5rem;
+        line-height: 1.8;
+        color: $react-text;
+
+        strong {
+            color: $react-primary;
+            font-weight: 600;
+        }
+
+        @include mx.tablet {
+            font-size: 1.6rem;
+        }
+
+        @include mx.desktop {
+            font-size: 1.7rem;
+        }
+    }
+
+
+    //  -----  Features  -----
+    &__features {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    &__features-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: $react-primary;
+        text-align: center;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 6rem;
+            height: 3px;
+            background-color: $react-primary;
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        @include mx.tablet {
+            font-size: 2.6rem;
+        }
+    }
+
+    &__features-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        @include mx.tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mx.desktopSM {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__feature {
+        background-color: $react-card-bg;
+        border: 1px solid $react-card-border;
+        border-radius: 1rem;
+        padding: 2.5rem;
+        box-shadow: $react-card-shadow;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: $react-card-shadow-hover;
+        }
+    }
+
+    &__feature-icon {
+        font-size: 3rem;
+    }
+
+    &__feature-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: $react-primary;
+    }
+
+    &__feature-text {
+        font-size: 1.4rem;
+        line-height: 1.75;
+        color: $react-text-light;
+
+        code {
+            background-color: $react-tag-bg;
+            color: $react-primary;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            font-family: monospace;
+        }
+
+        @include mx.tablet {
+            font-size: 1.5rem;
+        }
+    }
+
+
+    //  -----  Concepts  -----
+    &__concepts-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__concepts-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: $react-primary;
+        text-align: center;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 6rem;
+            height: 3px;
+            background-color: $react-primary;
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        @include mx.tablet {
+            font-size: 2.6rem;
+        }
+    }
+
+    &__concepts {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__concept {
+        background-color: $react-tag-bg;
+        color: $react-tag-color;
+        border: 1px solid $react-tag-border;
+        border-radius: 2rem;
+        padding: 0.6rem 1.4rem;
+        font-size: 1.3rem;
+        font-family: monospace;
+        font-weight: 500;
+        cursor: default;
+        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            background-color: $react-primary;
+            color: $color-white;
+            transform: scale(1.06);
+        }
+
+        @include mx.tablet {
+            font-size: 1.4rem;
+            padding: 0.7rem 1.6rem;
+        }
+    }
+
+}
+
+
+//  -----  Markdown: color del título (tema react)  -----
+.markdown__title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: $react-primary;
+    text-align: center;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 6rem;
+        height: 3px;
+        background-color: $react-primary;
+        margin: 0.8rem auto 0;
+        border-radius: 2px;
+    }
+}

@@ -1,0 +1,143 @@
+<!--
+    *  ---------------------------------------------------------------------------------  *
+    *  -----  /layout-footer.html  --  /src/components/layouts/layout-footer.html  -----  *
+    *  ---------------------------------------------------------------------------------  *
+-->
+
+<!--  ----------  Footer  ----------  -->
+<footer class="footer__container">
+
+    
+    <header class="footer__header">
+
+        <!--  ----------  Header del proyecto (reutiliza .header__*)  ----------  -->
+        <div class="header__container">
+
+
+            <!--  -----  Marca lateral Plugin SPA -----  -->
+            <a class="header__brand header__brand--spa" href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
+
+                <span class="header__logo-shell">
+                    <img
+                        class="header__logo-javascript"
+                        src="../../../assets/logos/javascript-logo.svg"
+                        alt="Logo JavaScript"
+                    >
+                </span>
+
+                <span class="header__brand-copy">
+                    <span class="header__eyebrow"> Plugin SPA </span>
+                    <span class="header__brand-name"> spa-loader </span>
+                </span>
+            </a>
+
+
+            <!--  -----  Título del Header -----  -->
+            <div class="header__content">
+
+                <p class="header__badge"> Plugin SPA </p>
+
+                <h1 class="header__title">
+                    &lt; spa-loader-content-html-v3 /&gt;
+                </h1>
+
+                <p id="footerTitle" class="header__dynamic-title">
+                    <!--  *****  renderizado del título con el plugin  *****  -->
+                </p>
+
+            </div>
+
+            <!--  -----  Marca lateral JavaScript -----  -->
+            <a class="header__brand header__brand--javascript" href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
+                <span class="header__brand-copy">
+                    <span class="header__eyebrow"> Vanilla JS </span>
+                    <span class="header__brand-name"> JavaScript </span>
+                </span>
+
+                <span class="header__logo-shell">
+                    <img
+                        class="header__logo-javascript"
+                        src="../../../assets/logos/javascript-logo.svg"
+                        alt="Logo JavaScript"
+                    >
+                </span>
+            </a>
+
+
+        </div>
+
+    </header>
+
+
+    <!--
+        -------------------------
+        -----  Footer Main  -----
+        -------------------------
+    -->
+
+    <main class="footer__main">
+
+
+        <!--  -----  List - HOME  -----  -->
+        <ul class="footer__list">
+
+            <li class="footer__list-title">
+                <h3> Home </h3>
+            </li>
+
+            <li class="footer__item">
+                <a href="#" data-id="home" data-route="route-00-home" class="item__link-title">
+                    Plugin SPA — Inicio
+                </a>
+            </li>
+
+            <li class="footer__list-separator"> </li>
+
+        </ul>
+
+
+        <!--  -----  List - Tecnologías Web  -----  -->
+        <ul class="footer__list">
+
+            <li class="footer__list-title">
+                <h3> Tecnologías Web </h3>
+            </li>
+
+            <li class="footer__item">
+                <a href="#" data-id="htmlPage" data-route="route-html-page"> HTML5 </a>
+            </li>
+
+            <li class="footer__item">
+                <a href="#" data-id="cssPage" data-route="route-css-page"> CSS3 </a>
+            </li>
+
+            <li class="footer__item">
+                <a href="#" data-id="javascriptPage" data-route="route-javascript-page"> JavaScript </a>
+            </li>
+
+            <li class="footer__item">
+                <a href="#" data-id="jqueryPage" data-route="route-jquery-page"> jQuery </a>
+            </li>
+
+            <li class="footer__item">
+                <a href="#" data-id="jqueryUiPage" data-route="route-jquery-ui-page"> jQuery UI </a>
+            </li>
+
+             <li class="footer__item">
+                <a href="#" data-id="reactPage" data-route="route-react-page"> React </a>
+            </li>
+
+            <li class="footer__item">
+                <a href="#" data-id="astroPage" data-route="route-astro-page"> Astro </a>
+
+            </li>
+
+            <li class="footer__list-separator"> </li>
+
+        </ul>
+
+
+    </main>
+
+
+</footer>

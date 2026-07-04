@@ -1,0 +1,67 @@
+<!--
+    *  -----  /jquery-ui-demo.html  --  /src/pages-components/jquery-ui/jquery-ui-demo.html  -----
+-->
+
+
+<div class="jquery-ui-demo">
+
+
+    <!--  -----  Hero  -----  -->
+    <div class="jquery-ui-page__hero">
+        <div class="jquery-ui-page__hero-badge">
+            <span class="jquery-ui-page__hero-tag" aria-hidden="true">UI</span>
+            <h3 class="jquery-ui-page__hero-title">jQuery UI</h3>
+            <p class="jquery-ui-page__hero-subtitle">Demo de scripts SPA V3.1</p>
+        </div>
+    </div>
+
+
+    <!--  -----  Intro  -----  -->
+    <section class="jquery-ui-page__intro">
+        <p class="jquery-ui-page__intro-text">
+            Este componente se inyecta con <strong>pagesComponents</strong> del plugin
+            <strong>spa-loader-content-html v3.1</strong>. Los scripts de la ruta se cargan
+            en la <strong>Fase 3</strong> (después de la View Transition), cuando el DOM ya
+            está mutado y los contenedores destino existen.
+        </p>
+    </section>
+
+
+    <!--  -----  Demo CJS  -----  -->
+    <section class="jquery-ui-page__features" data-jquery-ui-demo="cjs">
+
+        <h3 class="jquery-ui-page__features-title">Demo Scripts CJS</h3>
+
+        <p class="jquery-ui-page__intro-text" data-jquery-ui-demo-status="cjs">
+            Esperando <code>jquery-ui-page.cjs.js</code>…
+        </p>
+
+        <div class="jquery-ui-page__features-grid" data-jquery-ui-demo-target="cjs"></div>
+
+    </section>
+
+
+    <!--  -----  Demo ESM  -----  -->
+    <section class="jquery-ui-page__features" data-jquery-ui-demo="esm">
+
+        <h3 class="jquery-ui-page__features-title">Demo Scripts ESM</h3>
+
+        <p class="jquery-ui-page__intro-text" data-jquery-ui-demo-status="esm">
+            Esperando <code>jquery-ui-page.esm.js</code>…
+        </p>
+
+        <div class="jquery-ui-page__features-grid" data-jquery-ui-demo-target="esm"></div>
+
+    </section>
+
+
+    <!--  -----  Tags / conceptos (renderizados por ESM)  -----  -->
+    <section class="jquery-ui-page__tags-section">
+
+        <h3 class="jquery-ui-page__tags-title">Widgets jQuery UI renderizados por ESM</h3>
+
+        <ul class="jquery-ui-page__tags" data-jquery-ui-demo-target="tags"></ul>
+
+    </section>
+
+</div>

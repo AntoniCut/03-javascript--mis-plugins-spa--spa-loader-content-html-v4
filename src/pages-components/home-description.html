@@ -1,0 +1,327 @@
+<!--
+    *  --------------------------------------------------------------  *
+    *  -----  /home.html  --  /src/pages-components/home.html  -----  *
+    *  --------------------------------------------------------------  *
+-->
+
+<div class="home-page">
+
+    <!--  -----  Hero  -----  -->
+    <div class="home-page__hero">
+        <div class="home-page__hero-badge">
+            <span class="home-page__hero-tag" aria-hidden="true">SPA</span>
+            <h3 class="home-page__hero-title">spa-loader-content-html</h3>
+            <p class="home-page__hero-subtitle">Plugin vanilla JavaScript para SPAs — v3</p>
+        </div>
+    </div>
+
+    <!--  -----  Intro  -----  -->
+    <section class="home-page__intro">
+        <p class="home-page__intro-text">
+            <strong>spa-loader-content-html</strong> es un plugin vanilla JavaScript diseñado para crear
+            aplicaciones de una sola página (<strong>SPA</strong>) sin frameworks. Carga fragmentos HTML
+            dinámicamente mediante <code>fetch()</code>, inyectándolos en contenedores del DOM definidos
+            por rutas configuradas en un manifiesto ligero.
+        </p>
+        <p class="home-page__intro-text">
+            La <strong>versión 3</strong> introduce lazy loading de módulos de ruta mediante
+            <code>import()</code> dinámico, soporte nativo para la
+            <strong>View Transitions API</strong>, integración con
+            <strong>Markdown Shiki</strong> para resaltar código fuente en cada vista,
+            reescritura automática de URLs en HTML inyectado, metadatos dinámicos por ruta
+            (título, favicon, cabecera), navegación con <strong>History API</strong>,
+            caché de módulos por ruta y un sistema de eventos personalizados para desacoplar
+            el loader visual de la lógica de navegación.
+        </p>
+    </section>
+
+    <!--  -----  Features  -----  -->
+    <section class="home-page__features">
+
+        <h3 class="home-page__features-title">Características Principales</h3>
+
+        <div class="home-page__features-grid">
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">🚀</span>
+                <h4 class="home-page__feature-title">Lazy Loading de Rutas</h4>
+                <p class="home-page__feature-text">
+                    Los módulos de ruta se importan dinámicamente con <code>import()</code> solo cuando
+                    el usuario navega a esa ruta. Un manifiesto ligero (<code>routeManifest</code>) registra
+                    cada ruta con <code>id</code>, <code>path</code> y <code>file</code>, sin importar
+                    módulos en el arranque.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">🎬</span>
+                <h4 class="home-page__feature-title">View Transitions API</h4>
+                <p class="home-page__feature-text">
+                    Cuando el navegador soporta <code>document.startViewTransition()</code>, el plugin
+                    envuelve automáticamente el renderizado de la nueva ruta en una transición nativa,
+                    logrando animaciones fluidas entre páginas sin configuración adicional.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">📋</span>
+                <h4 class="home-page__feature-title">Route Manifest</h4>
+                <p class="home-page__feature-text">
+                    El <code>routeManifest</code> es un array de entradas
+                    <code>&#123; id, path, file &#125;</code>. El plugin resuelve la ruta activa
+                    comparando <code>window.location.pathname</code> normalizado con cada <code>path</code>,
+                    y carga el módulo correspondiente bajo demanda.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">🔃</span>
+                <h4 class="home-page__feature-title">Inyección de HTML por Componente</h4>
+                <p class="home-page__feature-text">
+                    Cada ruta define un objeto <code>components</code> donde la clave es el
+                    <code>id</code> del contenedor en el DOM y el valor es la URL del fragmento HTML.
+                    El plugin hace <code>fetch()</code> de cada fragmento y lo inyecta en su contenedor
+                    de forma secuencial.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">🎨</span>
+                <h4 class="home-page__feature-title">CSS y JS por Ruta</h4>
+                <p class="home-page__feature-text">
+                    Cada ruta puede declarar sus propios <code>styles</code> (array de
+                    <code>&#123; href &#125;</code>) y <code>scripts</code> (array de
+                    <code>&#123; src, isModule? &#125;</code>). El plugin los inyecta dinámicamente
+                    en el <code>&lt;head&gt;</code> al navegar a esa ruta.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">⚡</span>
+                <h4 class="home-page__feature-title">Caché y Eventos Personalizados</h4>
+                <p class="home-page__feature-text">
+                    Los módulos de ruta se cachean en un <code>Map</code> interno para evitar
+                    importaciones redundantes. El plugin emite eventos <code>spa:route-loaded</code>,
+                    <code>spa:first-route-loaded</code> y <code>spa:route-load-error</code> para
+                    desacoplar el loader visual de la navegación SPA.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">✨</span>
+                <h4 class="home-page__feature-title">Markdown Shiki</h4>
+                <p class="home-page__feature-text">
+                    Cada ruta puede declarar un array <code>MarkdownShikiHtml</code> con entradas
+                    <code>&#123; url, target &#125;</code>. Tras cargar la vista, el plugin hace
+                    <code>fetch()</code> de los bloques HTML generados con
+                    <strong>Shiki</strong> y los inyecta en contenedores
+                    <code>[data-shiki="..."]</code>. Regenera el resaltado con
+                    <code>pnpm code-highlight</code>.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">🔗</span>
+                <h4 class="home-page__feature-title">Reescritura de URLs en HTML</h4>
+                <p class="home-page__feature-text">
+                    Al inyectar fragmentos HTML, el plugin reescribe automáticamente las rutas
+                    relativas de <code>src</code>, <code>href</code>, <code>poster</code> y
+                    <code>srcset</code> respecto a la URL del fragmento origen, evitando enlaces
+                    rotos cuando los componentes referencian assets en su propio directorio.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">🧭</span>
+                <h4 class="home-page__feature-title">Navegación con History API</h4>
+                <p class="home-page__feature-text">
+                    Intercepta clics en enlaces internos con <code>data-id</code> y actualiza la
+                    URL con <code>history.pushState()</code> sin recargar la página. El evento
+                    <code>popstate</code> restaura la ruta, el favicon y el contenido al usar
+                    los botones atrás/adelante del navegador.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">🏷️</span>
+                <h4 class="home-page__feature-title">Metadatos Dinámicos por Ruta</h4>
+                <p class="home-page__feature-text">
+                    Cada ruta puede definir <code>pageTitle</code>, <code>headerTitle</code> y
+                    <code>favicon</code>. El plugin actualiza el <code>&lt;title&gt;</code>, el
+                    encabezado del layout y el icono de la pestaña al navegar, con
+                    cache-busting en el favicon para evitar parpadeos entre vistas.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">🚫</span>
+                <h4 class="home-page__feature-title">Ruta 404 Integrada</h4>
+                <p class="home-page__feature-text">
+                    Si la URL no coincide con ninguna entrada del manifest, el plugin carga
+                    automáticamente la ruta <code>404NotFoundPage</code> configurada en el
+                    manifiesto. Funciona en carga inicial, clics internos y navegación
+                    <code>popstate</code>, evitando pantallas en blanco o loaders bloqueados.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">⏳</span>
+                <h4 class="home-page__feature-title">Loader Inicial Desacoplado</h4>
+                <p class="home-page__feature-text">
+                    El efecto <code>effect-loading-page.js</code> escucha
+                    <code>spa:first-route-loaded</code> y <code>spa:route-load-error</code>
+                    para ocultar el loader solo cuando la primera ruta SPA termina de cargar
+                    (o tras un timeout de fallback), manteniendo la UX fluida desde el arranque.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!--  -----  Opciones de Configuración  -----  -->
+    <section class="home-page__tags-section">
+
+        <h3 class="home-page__tags-title">Opciones de Configuración</h3>
+
+        <ul class="home-page__tags">
+            <li class="home-page__tag">routeManifest</li>
+            <li class="home-page__tag">routeModulesBase</li>
+            <li class="home-page__tag">base</li>
+            <li class="home-page__tag">id</li>
+            <li class="home-page__tag">path</li>
+            <li class="home-page__tag">file</li>
+            <li class="home-page__tag">components</li>
+            <li class="home-page__tag">MarkdownShikiHtml[ ]</li>
+            <li class="home-page__tag">url</li>
+            <li class="home-page__tag">target</li>
+            <li class="home-page__tag">data-shiki</li>
+            <li class="home-page__tag">styles[ ]</li>
+            <li class="home-page__tag">scripts[ ]</li>
+            <li class="home-page__tag">isModule</li>
+            <li class="home-page__tag">exportFunctionName</li>
+            <li class="home-page__tag">pageTitle</li>
+            <li class="home-page__tag">headerTitle</li>
+            <li class="home-page__tag">favicon</li>
+        </ul>
+
+    </section>
+
+    <!--  -----  Eventos Personalizados  -----  -->
+    <section class="home-page__tags-section">
+
+        <h3 class="home-page__tags-title">Eventos Personalizados</h3>
+
+        <ul class="home-page__tags home-page__tags--events">
+            <li class="home-page__tag">spa:route-loaded</li>
+            <li class="home-page__tag">spa:first-route-loaded</li>
+            <li class="home-page__tag">spa:route-load-error</li>
+        </ul>
+
+    </section>
+
+    <!--  -----  Pipeline de Desarrollo  -----  -->
+    <section class="home-page__features">
+
+        <h3 class="home-page__features-title">Pipeline de Desarrollo</h3>
+
+        <section class="home-page__intro home-page__intro--pipeline">
+            <p class="home-page__intro-text">
+                El proyecto separa el código fuente (<code>src/</code>) del artefacto servible
+                (<code>app/</code>) y del build de producción minificado (<code>dist/</code>).
+                <strong>Gulp</strong> orquesta la copia, compilación SCSS, generación Shiki y
+                minificación; los servidores Express añaden fallback SPA, live reload y
+                soporte PHP en desarrollo.
+            </p>
+        </section>
+
+        <div class="home-page__features-grid">
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">📁</span>
+                <h4 class="home-page__feature-title">Gulp — src → app</h4>
+                <p class="home-page__feature-text">
+                    La tarea <code>copyAll</code> copia componentes, páginas, rutas, plugins,
+                    scripts y efectos desde <code>src/</code> a <code>app/</code>, y compila
+                    <code>globals.scss</code> y los SCSS de cada página a CSS con sourcemaps.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">🖍️</span>
+                <h4 class="home-page__feature-title">generate-markdown-shiki</h4>
+                <p class="home-page__feature-text">
+                    Tras compilar estilos, <code>generateShiki</code> lee las rutas del SPA,
+                    deduce los archivos fuente por convención de nombres (<code>-html</code>,
+                    <code>-css</code>, <code>-scss</code>, <code>-js</code>) y genera bloques
+                    HTML resaltados con Shiki (tema <code>dark-plus</code>) en
+                    <code>app/markdown-shiki/</code>.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">👀</span>
+                <h4 class="home-page__feature-title">Watch en Tiempo Real</h4>
+                <p class="home-page__feature-text">
+                    <code>gulp dev</code> ejecuta <code>copyAll</code> y observa cambios en
+                    <code>src/</code>. Al modificar SCSS, recompila estilos, regenera Shiki y
+                    sincroniza markdown-shiki. Soporta polling vía
+                    <code>CHOKIDAR_USEPOLLING</code> para entornos Linux con límites de inotify.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">🌐</span>
+                <h4 class="home-page__feature-title">Dev Server + BrowserSync</h4>
+                <p class="home-page__feature-text">
+                    <code>pnpm dev</code> lanza Gulp watch y un servidor Express con fallback
+                    SPA, archivos estáticos bajo la base del proyecto, soporte
+                    <code>php-cgi</code> y proxy BrowserSync con live reload en
+                    <code>app/</code> e <code>index.html</code> (puerto configurable con
+                    <code>DEV_SERVER_PORT</code>).
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">📦</span>
+                <h4 class="home-page__feature-title">Build de Producción</h4>
+                <p class="home-page__feature-text">
+                    <code>pnpm build</code> limpia <code>dist/</code> y <code>app/</code>,
+                    regenera <code>app/</code> desde <code>src/</code> y minifica HTML, CSS y JS
+                    con <code>htmlmin</code>, <code>clean-css</code> y <code>terser</code>
+                    hacia <code>dist/</code>, listo para despliegue.
+                </p>
+            </article>
+
+            <article class="home-page__feature">
+                <span class="home-page__feature-icon" aria-hidden="true">🔍</span>
+                <h4 class="home-page__feature-title">Preview Server</h4>
+                <p class="home-page__feature-text">
+                    <code>pnpm preview</code> sirve el contenido de <code>dist/</code> con
+                    Express, fallback SPA y la misma base de rutas que en desarrollo. Permite
+                    validar el build minificado antes de publicar (puerto
+                    <code>PREVIEW_SERVER_PORT</code>, por defecto 4173).
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!--  -----  Scripts npm  -----  -->
+    <section class="home-page__tags-section">
+
+        <h3 class="home-page__tags-title">Scripts npm</h3>
+
+        <ul class="home-page__tags home-page__tags--scripts">
+            <li class="home-page__tag">pnpm dev</li>
+            <li class="home-page__tag">pnpm dev:watch</li>
+            <li class="home-page__tag">pnpm serve:dev</li>
+            <li class="home-page__tag">pnpm stop:dev</li>
+            <li class="home-page__tag">pnpm build</li>
+            <li class="home-page__tag">pnpm preview</li>
+            <li class="home-page__tag">pnpm code-highlight</li>
+        </ul>
+
+    </section>
+
+</div>

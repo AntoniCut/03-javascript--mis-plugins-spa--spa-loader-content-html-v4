@@ -1,0 +1,13 @@
+/*
+    *  -------------------------------------------------------------------------------------  *
+    *  -----  /_view-transition.scss  --  /src/styles/scss/base/_view-transition.scss  -----  *
+    *  -------------------------------------------------------------------------------------  *
+*/
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-group(*) {
+    animation-duration: 1000ms;
+}

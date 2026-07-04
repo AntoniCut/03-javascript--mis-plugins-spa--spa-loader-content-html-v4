@@ -1,0 +1,61 @@
+/*
+    *  -------------------------------------------------------------------------  *
+    *  -----  /_variables.scss  --  /src/styles/scss/base/_variables.scss  -----  *
+    *  -------------------------------------------------------------------------  *
+*/
+
+//  -----  base del proyecto  -----
+$base: '/mis-plugins-spa/spa-loader-content-html-v4';
+
+
+//  -----  Fuentes  -----
+$font-primary: "Monserrat", Arial, Helvetica, sans-serif;
+
+
+//  -----  Colores  -----
+$color-primary:   #f0db4f;
+$color-secondary: #61dafb;
+$color-white:     #ffffff;
+$color-light:     #E6EBF1;
+$color-navy:      #0f172a;
+$color-focus:     #f89c15;
+
+
+//  -----  Fondos lisos  -----
+$bg-dark: #1E293B;
+$bg-dark-footer: #020617;
+
+
+//  -----  Background Principal  -----
+$bg-main: radial-gradient(circle, rgb(255, 255, 255), rgb(219, 228, 240), rgb(176, 196, 236));
+
+
+//  -----  Background Gradiente Header  -----
+$bg-gradient-header: linear-gradient(to left, rgb(189, 220, 230) 20%, rgb(133, 157, 189) 40%, rgb(100, 143, 230) 60%, rgb(197, 201, 221) 80%);
+
+//  -----  Background Gradiente Footer  -----
+$bg-gradient-footer: linear-gradient(to right, rgb(139, 175, 187) 20%, rgb(146, 175, 212) 40%, rgb(100, 143, 230) 60%, rgb(197, 207, 250) 80%);
+
+
+//  -----  Background Cuadricula Footer  -----
+$bg-grid-pattern-footer: linear-gradient(to right, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(71, 85, 105, 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+
+$bg-grid-size-32x32:
+    32px 32px,
+    32px 32px,
+    100% 100%;
+
+
+//  -----  Sombras  -----
+$shadow-outer: 0px 4px 10px rgba(0, 0, 0, 0.3);
+$shadow-text:  0 2px 8px rgba(0, 0, 0, 0.3);
+
+
+// ----- Breakpoints -----
+$mobile:      480px;
+$tablet:      768px;
+$desktop-sm:  1024px;
+$desktop:     1200px;
+$desktop-lg:  1400px;

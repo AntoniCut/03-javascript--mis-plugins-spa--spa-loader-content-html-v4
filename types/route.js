@@ -1,0 +1,85 @@
+/*
+    *  --------------------------------------------------------  *
+    *  -----  /route-types.js  --  /types/route-types.js  -----  *
+    *  --------------------------------------------------------  *
+*/
+
+
+//  ----------  Esto asegura que VS Code lo trate como módulo  ----------
+export { };
+
+
+/**
+ * -------------------------------
+ * -----  `RouteComponents`  -----
+ * -------------------------------
+ * @typedef {Record<string, string|undefined>} RouteComponents - Mapa de componentes HTML a cargar dinámicamente. 
+ *                                                               Cada valor puede ser string o undefined.
+ */
+
+
+/**
+ * --------------------------
+ * -----  `RouteStyle`  -----
+ * --------------------------
+ * @typedef {Object} RouteStyle - Representa una hoja de estilos que debe cargarse dinámicamente.
+ * @property {string} href - Ruta absoluta o relativa del archivo CSS.
+ */
+
+
+/**
+ * ---------------------------
+ * -----  `RouteScript`  -----
+ * ---------------------------
+ * @typedef {Object} RouteScript - Representa un script que debe cargarse dinámicamente.
+ * @property {string} src - Ruta absoluta o relativa del archivo JS.
+ * @property {boolean} [isModule] - Si es true, el script se carga como módulo ES6 con import() dinámico.
+ * @property {string|null} [exportFunctionName] - Nombre de la función exportada a ejecutar tras importar el módulo (solo si isModule es true).
+ */
+
+
+
+/**
+ * ----------------------------------
+ * -----  `MarkdownShikiEntry`  -----
+ * ----------------------------------
+ * @typedef {Object} MarkdownShikiEntry - Entrada que define cómo generar y dónde servir un bloque HTML resaltado con Shiki.
+ * @property {string} fileName - Nombre del fichero .html generado (p.ej. 'astro-page-html.html').
+ * @property {string} fileExtension - Tipo/lenguaje a resaltar: 'html' | 'css' | 'scss' | 'js' (mapeado a lang de Shiki).
+ * @property {string} urlInput - URL (con base) del archivo fuente a renderizar (debe existir en disco para que no haya error).
+ * @property {string} urlOutput - URL (con base) de la CARPETA donde se guarda el .html generado. El archivo final se sirve de `urlOutput + '/' + fileName`.
+ * @property {string} target - Selector CSS del contenedor DOM donde se insertará el HTML (p.ej. `'[data-shiki="codeHtml"]'`). Permite múltiples archivos del mismo tipo sin colisión de IDs.
+ */
+
+
+/**
+ * ---------------------------------
+ * -----  `PageComponentEntry`  -----
+ * ---------------------------------
+ * @typedef {Object} PageComponentEntry - Entrada de componente HTML que se renderiza dentro de la página actual.
+ *                                        A diferencia de `components` (que pueblan regiones del layout mediante ID),
+ *                                          `pagesComponents` inyecta HTML en contenedores de la propia vista usando selectores CSS arbitrarios.
+ * @property {string} url - URL absoluta al archivo .html del componente de página.
+ * @property {string} target - Selector CSS del contenedor DOM donde se insertará el componente (p.ej. `'[data-component-page="htmlPage"]'`). Permite renderizar varios componentes en la misma página.
+ */
+
+
+
+/**
+ * ---------------------
+ * -----  `Route`  -----
+ * ---------------------
+ * @typedef {Object} Route - Objeto de configuración de cada ruta del SPA.
+ * @property {string} id - Identificador único de la ruta.
+ * @property {string} path - URL interna asociada a la vista.
+ * @property {string} pageTitle - Título mostrado en la etiqueta `<title>`.
+ * @property {string} headerTitle - Título que se mostrará dentro del layout-header.
+ * @property {string} favicon - Ruta del favicon específico de la vista.
+ * @property {RouteComponents} components - Mapa selector → URL de componente HTML.
+ * @property {PageComponentEntry[]} [pagesComponents] - Lista de componentes HTML que se renderizan dentro de la propia página (en contenedores con `data-component-page="..."`). Cada entrada define `{ url, target }`. Opcional.
+ * @property {MarkdownShikiEntry[]} MarkdownShikiHtml - Entradas que definen los bloques HTML resaltados con Shiki.
+ *                                          Cada entrada indica el fuente (`urlInput`), el tipo (`fileExtension`), el nombre del fichero generado (`fileName`) y la carpeta de salida (`urlOutput`).
+ *                                          Ejecuta `pnpm code-highlight` para regenerarlos.
+ * @property {RouteStyle[]|null} styles - Lista de hojas CSS asociadas a la vista (opcional).
+ * @property {RouteScript[]|null} scripts - Lista de scripts a cargar dinámicamente (opcional).
+ */

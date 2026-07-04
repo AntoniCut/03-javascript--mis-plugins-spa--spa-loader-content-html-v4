@@ -1,0 +1,21 @@
+/*
+    *  --------------------------------------------------------------  *
+    *  -----  /globals.scss  --  /src/styles/scss/globals.scss  -----  *
+    *  --------------------------------------------------------------  *
+*/
+
+@forward './base/reset';
+@forward './fonts/monserrat';
+@forward './base/variables';
+@forward './base/mixins';
+@forward './base/view-transition';
+@forward './base/scrollbar';
+
+@forward './components/layout/loader';
+@forward './components/layout/layout';
+@forward './components/layout/layout-header';
+@forward './components/layout/layout-navbar';
+@forward './components/layout/layout-main';
+@forward './components/layout/layout-footer';
+@forward './components/markdown/markdown-code';
+

@@ -1,0 +1,342 @@
+/*
+    *  ---------------------------------------------------------------------  *
+    *  -----  /jquery-page.scss  --  /src/scss/pages/jquery-page.scss  -----  *
+    *  ---------------------------------------------------------------------  *
+*/
+
+@use '../base/variables' as var;
+@use '../base/mixins' as mx;
+
+
+//  -----  Variables SCSS  -----
+$jq-primary:          #0769ad;
+$jq-secondary:        #4099d8;
+$jq-accent-bg:        #eef6fb;
+$jq-text:             #0d2035;
+$jq-text-light:       #3a5672;
+$jq-card-bg:          var.$color-white;
+$jq-card-border:      rgba($jq-primary, 0.2);
+$jq-card-shadow:      0 4px 16px rgba($jq-primary, 0.1);
+$jq-card-shadow-hover: 0 8px 28px rgba($jq-primary, 0.2);
+$jq-tag-bg:           rgba($jq-primary, 0.08);
+$jq-tag-color:        $jq-primary;
+$jq-tag-border:       rgba($jq-primary, 0.3);
+$color-white:         var.$color-white;
+$shadow-hero-title:   0 2px 8px rgba(0, 0, 0, 0.35);
+
+
+//  -----  Layout Header  -----
+.header__dynamic-title {
+    color: $jq-primary;
+}
+
+
+//  -----  jquery-page  -----
+
+.main__title {
+    color: $jq-primary;
+    background: var.$bg-gradient-header;
+}
+
+.jquery-page,
+.jquery-demo {
+
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+
+
+    //  -----  Hero  -----
+    &__hero {
+        width: 100%;
+        min-height: 18rem;
+        background: linear-gradient(135deg, $jq-text 0%, $jq-secondary 55%, $jq-primary 100%);
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem 2rem;
+
+        @include mx.tablet {
+            min-height: 24rem;
+            padding: 4rem 3rem;
+        }
+
+        @include mx.desktop {
+            min-height: 28rem;
+        }
+
+        @include mx.desktopLG {
+            min-height: 32rem;
+        }
+    }
+
+    &__hero-badge {
+        text-align: center;
+        color: $color-white;
+    }
+
+    &__hero-tag {
+        display: block;
+        font-size: 4rem;
+        font-weight: 800;
+        font-family: monospace;
+        letter-spacing: 0.3rem;
+        opacity: 0.9;
+
+        @include mx.tablet {
+            font-size: 6rem;
+        }
+
+        @include mx.desktop {
+            font-size: 8rem;
+        }
+    }
+
+    &__hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 0.6rem 0 0.4rem;
+        text-shadow: $shadow-hero-title;
+
+        @include mx.tablet {
+            font-size: 4.5rem;
+        }
+
+        @include mx.desktop {
+            font-size: 5.5rem;
+        }
+    }
+
+    &__hero-subtitle {
+        font-size: 1.4rem;
+        opacity: 0.85;
+        letter-spacing: 0.05rem;
+
+        @include mx.tablet {
+            font-size: 1.8rem;
+        }
+
+        @include mx.desktopLG {
+            font-size: 2rem;
+        }
+    }
+
+
+    //  -----  Intro  -----
+    &__intro {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        background-color: $jq-accent-bg;
+        border-left: 5px solid $jq-primary;
+        border-radius: 0 0.8rem 0.8rem 0;
+        padding: 2.5rem;
+    }
+
+    &__intro-text {
+        font-size: 1.5rem;
+        line-height: 1.8;
+        color: $jq-text;
+
+        strong {
+            color: $jq-primary;
+            font-weight: 600;
+        }
+
+        code {
+            background-color: $jq-tag-bg;
+            color: $jq-primary;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-family: monospace;
+        }
+
+        @include mx.tablet {
+            font-size: 1.6rem;
+        }
+
+        @include mx.desktop {
+            font-size: 1.7rem;
+        }
+    }
+
+
+    //  -----  Features  -----
+    &__features {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    &__features-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: $jq-primary;
+        text-align: center;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 6rem;
+            height: 3px;
+            background-color: $jq-primary;
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        @include mx.tablet {
+            font-size: 2.6rem;
+        }
+    }
+
+    &__features-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        @include mx.tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mx.desktopSM {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__feature {
+        background-color: $jq-card-bg;
+        border: 1px solid $jq-card-border;
+        border-radius: 1rem;
+        padding: 2.5rem;
+        box-shadow: $jq-card-shadow;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: $jq-card-shadow-hover;
+        }
+    }
+
+    &__feature-icon {
+        font-size: 3rem;
+    }
+
+    &__feature-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: $jq-primary;
+    }
+
+    &__feature-text {
+        font-size: 1.4rem;
+        line-height: 1.75;
+        color: $jq-text-light;
+
+        code {
+            background-color: $jq-tag-bg;
+            color: $jq-primary;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            font-family: monospace;
+        }
+
+        @include mx.tablet {
+            font-size: 1.5rem;
+        }
+    }
+
+
+    //  -----  Tags Section  -----
+    &__tags-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__tags-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: $jq-primary;
+        text-align: center;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 6rem;
+            height: 3px;
+            background-color: $jq-primary;
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        @include mx.tablet {
+            font-size: 2.6rem;
+        }
+    }
+
+    &__tags {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__tag {
+        background-color: $jq-tag-bg;
+        color: $jq-tag-color;
+        border: 1px solid $jq-tag-border;
+        border-radius: 2rem;
+        padding: 0.6rem 1.4rem;
+        font-size: 1.3rem;
+        font-family: monospace;
+        font-weight: 500;
+        cursor: default;
+        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            background-color: $jq-primary;
+            color: $color-white;
+            transform: scale(1.06);
+        }
+
+        @include mx.tablet {
+            font-size: 1.4rem;
+            padding: 0.7rem 1.6rem;
+        }
+    }
+
+}
+
+
+//  -----  Markdown: color del título (tema jquery)  -----
+.markdown__title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: $jq-primary;
+    text-align: center;
+}
+
+.markdown__title::after {
+    content: "";
+    display: block;
+    width: 6rem;
+    height: 3px;
+    background-color: $jq-primary;
+    margin: 0.8rem auto 0;
+    border-radius: 2px;
+}

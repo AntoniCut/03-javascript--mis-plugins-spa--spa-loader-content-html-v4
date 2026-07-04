@@ -1,0 +1,75 @@
+<!--
+    *  ------------------------------------------  *
+    *  -----  /index.html  --  /index.html  -----  *
+    *  ------------------------------------------  *
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--  -----  Base del proyecto  -----  -->
+    <base href="/mis-plugins-spa/spa-loader-content-html-v4/">
+
+    <link rel="icon" href="assets/favicon/javascript-favicon.ico" type="image/x-icon">    
+
+    <!--  -----  Estilos  -----  -->
+    <link rel="preload" href="app/css/globals.css" as="style">
+    <link rel="stylesheet" href="app/css/globals.css">
+        
+    <!--  -----  JS  -----  -->
+    <script type="module" src="app/main.js"> </script>
+
+</head>
+
+
+<body>
+
+
+    <!--  ----------  LOADER  ----------  -->
+    <div class="loader__container" id="loader">
+
+        <h1 class="loader__title"> 
+            &lt; spa-loader-content-html-v4 /&gt; 
+        </h1>
+
+        <div class="spinner"> 
+            <!--  *****  Spinner  *****  -->
+        </div>
+
+        <img
+            class="loader__icon-javascript"
+            src="assets/logos/javascript-logo.svg"
+            alt="JavaScript Animation Loader"
+            width="300"
+            height="300"
+        >
+
+        <h2 class="loader__title"> 
+            &lt; javascript.antonydev.tech /&gt;
+        </h2>
+
+    </div>
+
+    <!--  ----------  LAYOUT  ----------  -->
+    <div class="layout" id="layout">
+
+        <!--  ----------  HEADER  ----------  -->
+        <header class="layout__header" id="layoutHeader"> </header>
+
+        <!--  ----------  NAVBAR  ----------  -->
+        <nav class="layout__navbar" id="layoutNavbar"> </nav>
+
+        <!--  ----------  MAIN  ----------  -->
+        <main class="layout__main" id="layoutMain"> </main>
+
+        <!--  ----------  FOOTER  ----------  -->
+        <footer class="layout__footer" id="layoutFooter"> </footer>
+
+</body>
+
+</html>

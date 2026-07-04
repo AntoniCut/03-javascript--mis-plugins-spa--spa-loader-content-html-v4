@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /mis-plugins-spa/spa-loader-content-html-v3/
+    RewriteRule ^index\.html$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /mis-plugins-spa/spa-loader-content-html-v3/index.html [L]
+</IfModule>
+

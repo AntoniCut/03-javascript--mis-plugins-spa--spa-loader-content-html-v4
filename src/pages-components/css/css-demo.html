@@ -1,0 +1,67 @@
+<!--
+    *  -----  /css-demo.html  --  /src/pages-components/css/css-demo.html  -----
+-->
+
+
+<div class="css-demo">
+
+
+    <!--  -----  Hero  -----  -->
+    <div class="css-page__hero">
+        <div class="css-page__hero-badge">
+            <span class="css-page__hero-tag" aria-hidden="true">{ }</span>
+            <h3 class="css-page__hero-title">CSS3</h3>
+            <p class="css-page__hero-subtitle">Demo de scripts SPA V3.1</p>
+        </div>
+    </div>
+
+
+    <!--  -----  Intro  -----  -->
+    <section class="css-page__intro">
+        <p class="css-page__intro-text">
+            Este componente se inyecta con <strong>pagesComponents</strong> del plugin
+            <strong>spa-loader-content-html v3.1</strong>. Los scripts de la ruta se cargan
+            en la <strong>Fase 3</strong> (después de la View Transition), cuando el DOM ya
+            está mutado y los contenedores destino existen.
+        </p>
+    </section>
+
+
+    <!--  -----  Demo CJS  -----  -->
+    <section class="css-page__features" data-css-demo="cjs">
+
+        <h3 class="css-page__features-title">Demo Scripts CJS</h3>
+
+        <p class="css-page__intro-text" data-css-demo-status="cjs">
+            Esperando <code>css-page.cjs.js</code>…
+        </p>
+
+        <div class="css-page__features-grid" data-css-demo-target="cjs"></div>
+
+    </section>
+
+
+    <!--  -----  Demo ESM  -----  -->
+    <section class="css-page__features" data-css-demo="esm">
+
+        <h3 class="css-page__features-title">Demo Scripts ESM</h3>
+
+        <p class="css-page__intro-text" data-css-demo-status="esm">
+            Esperando <code>css-page.esm.js</code>…
+        </p>
+
+        <div class="css-page__features-grid" data-css-demo-target="esm"></div>
+
+    </section>
+
+
+    <!--  -----  Tags / conceptos (renderizados por ESM)  -----  -->
+    <section class="css-page__tags-section">
+
+        <h3 class="css-page__tags-title">Propiedades CSS renderizadas por ESM</h3>
+
+        <ul class="css-page__tags" data-css-demo-target="tags"></ul>
+
+    </section>
+
+</div>

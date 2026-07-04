@@ -1,0 +1,377 @@
+/*
+    *  --------------------------------------------------------------  *
+    *  -----  /home.scss  --  /src/styles/scss/pages/home.scss  -----  *
+    *  --------------------------------------------------------------  *
+*/
+
+@use '../base/variables' as var;
+@use '../base/mixins' as mx;
+
+
+//  -----  Variables SCSS  -----
+$spa-primary:          #5e35b1;
+$spa-secondary:        #7c4dff;
+$spa-hero-base:        #1a0e30;
+$spa-scripts-color:    #2e7d32;
+$spa-accent-bg:        #f3f0ff;
+$spa-text:             #1a1033;
+$spa-text-light:       #4a4069;
+$spa-card-bg:          var.$color-white;
+$spa-card-border:      rgba($spa-primary, 0.2);
+$spa-card-shadow:      0 4px 16px rgba($spa-primary, 0.1);
+$spa-card-shadow-hover: 0 8px 28px rgba($spa-primary, 0.2);
+$spa-tag-bg:           rgba($spa-primary, 0.08);
+$spa-tag-color:        $spa-primary;
+$spa-tag-border:       rgba($spa-primary, 0.3);
+$spa-event-bg:         rgba($spa-secondary, 0.08);
+$spa-event-color:      $spa-secondary;
+$spa-event-border:     rgba($spa-secondary, 0.35);
+$spa-scripts-bg:       rgba($spa-scripts-color, 0.08);
+$spa-scripts-border:   rgba($spa-scripts-color, 0.35);
+$color-white:          var.$color-white;
+$shadow-hero-title:    0 2px 8px rgba(0, 0, 0, 0.35);
+
+
+//  -----  Layout Header  -----
+.header__dynamic-title {
+    color: $spa-primary;
+}
+
+
+//  -----  home-page  -----
+
+.main__title {
+    color: $spa-primary;
+    background: var.$bg-gradient-header;
+}
+
+.home-page,
+.home-demo {
+
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+
+
+    //  -----  Hero  -----
+    &__hero {
+        width: 100%;
+        min-height: 18rem;
+        background: linear-gradient(135deg, $spa-hero-base 0%, $spa-primary 55%, $spa-secondary 100%);
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3rem 2rem;
+
+        @include mx.tablet {
+            min-height: 24rem;
+            padding: 4rem 3rem;
+        }
+
+        @include mx.desktop {
+            min-height: 28rem;
+        }
+
+        @include mx.desktopLG {
+            min-height: 32rem;
+        }
+    }
+
+    &__hero-badge {
+        text-align: center;
+        color: $color-white;
+    }
+
+    &__hero-tag {
+        display: block;
+        font-size: 4rem;
+        font-weight: 800;
+        font-family: monospace;
+        letter-spacing: 0.4rem;
+        opacity: 0.9;
+
+        @include mx.tablet {
+            font-size: 6rem;
+        }
+
+        @include mx.desktop {
+            font-size: 8rem;
+        }
+    }
+
+    &__hero-title {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin: 0.6rem 0 0.4rem;
+        text-shadow: $shadow-hero-title;
+        font-family: monospace;
+        letter-spacing: 0.05rem;
+
+        @include mx.tablet {
+            font-size: 3.4rem;
+        }
+
+        @include mx.desktop {
+            font-size: 4.2rem;
+        }
+    }
+
+    &__hero-subtitle {
+        font-size: 1.4rem;
+        opacity: 0.85;
+        letter-spacing: 0.05rem;
+
+        @include mx.tablet {
+            font-size: 1.8rem;
+        }
+
+        @include mx.desktopLG {
+            font-size: 2rem;
+        }
+    }
+
+
+    //  -----  Intro  -----
+    &__intro {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        background-color: $spa-accent-bg;
+        border-left: 5px solid $spa-primary;
+        border-radius: 0 0.8rem 0.8rem 0;
+        padding: 2.5rem;
+    }
+
+    &__intro-text {
+        font-size: 1.5rem;
+        line-height: 1.8;
+        color: $spa-text;
+
+        strong {
+            color: $spa-primary;
+            font-weight: 600;
+        }
+
+        code {
+            background-color: $spa-tag-bg;
+            color: $spa-primary;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-family: monospace;
+        }
+
+        @include mx.tablet {
+            font-size: 1.6rem;
+        }
+
+        @include mx.desktop {
+            font-size: 1.7rem;
+        }
+    }
+
+
+    //  -----  Features  -----
+    &__features {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    &__features-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: $spa-primary;
+        text-align: center;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 6rem;
+            height: 3px;
+            background-color: $spa-primary;
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        @include mx.tablet {
+            font-size: 2.6rem;
+        }
+    }
+
+    &__features-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        @include mx.tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mx.desktopSM {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__feature {
+        background-color: $spa-card-bg;
+        border: 1px solid $spa-card-border;
+        border-radius: 1rem;
+        padding: 2.5rem;
+        box-shadow: $spa-card-shadow;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: $spa-card-shadow-hover;
+        }
+    }
+
+    &__feature-icon {
+        font-size: 3rem;
+    }
+
+    &__feature-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: $spa-primary;
+    }
+
+    &__feature-text {
+        font-size: 1.4rem;
+        line-height: 1.75;
+        color: $spa-text-light;
+
+        code {
+            background-color: $spa-tag-bg;
+            color: $spa-primary;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            font-family: monospace;
+        }
+
+        @include mx.tablet {
+            font-size: 1.5rem;
+        }
+    }
+
+
+    //  -----  Tags Section  -----
+    &__tags-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__tags-title {
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: $spa-primary;
+        text-align: center;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 6rem;
+            height: 3px;
+            background-color: $spa-primary;
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        @include mx.tablet {
+            font-size: 2.6rem;
+        }
+    }
+
+    &__tags {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__tag {
+        background-color: $spa-tag-bg;
+        color: $spa-tag-color;
+        border: 1px solid $spa-tag-border;
+        border-radius: 2rem;
+        padding: 0.6rem 1.4rem;
+        font-size: 1.3rem;
+        font-family: monospace;
+        font-weight: 500;
+        cursor: default;
+        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            background-color: $spa-primary;
+            color: $color-white;
+            transform: scale(1.06);
+        }
+
+        @include mx.tablet {
+            font-size: 1.4rem;
+            padding: 0.7rem 1.6rem;
+        }
+    }
+
+    &__tags--events &__tag {
+        background-color: $spa-event-bg;
+        color: $spa-event-color;
+        border-color: $spa-event-border;
+
+        &:hover {
+            background-color: $spa-secondary;
+            color: $color-white;
+        }
+    }
+
+    &__intro--pipeline {
+        margin-bottom: 0;
+    }
+
+    &__tags--scripts &__tag {
+        background-color: $spa-scripts-bg;
+        color: $spa-scripts-color;
+        border-color: $spa-scripts-border;
+
+        &:hover {
+            background-color: $spa-scripts-color;
+            color: $color-white;
+        }
+    }
+
+}
+
+
+//  -----  Markdown: color del título (tema home)  -----
+.markdown__title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: $spa-primary;
+    text-align: center;
+}
+
+.markdown__title::after {
+    content: "";
+    display: block;
+    width: 6rem;
+    height: 3px;
+    background-color: $spa-primary;
+    margin: 0.8rem auto 0;
+    border-radius: 2px;
+}

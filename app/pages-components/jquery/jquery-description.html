@@ -1,0 +1,141 @@
+<!--
+    *  ------------------------------------------------------------------  *
+    *  -----  /jquery-page.html  --  /src/pages-components/jquery-page.html  -----  *
+    *  ------------------------------------------------------------------  *
+-->
+
+<div class="jquery-page">
+
+    <!--  -----  Hero  -----  -->
+    <div class="jquery-page__hero">
+        <div class="jquery-page__hero-badge">
+            <span class="jquery-page__hero-tag" aria-hidden="true">$(element)</span>
+            <h3 class="jquery-page__hero-title">jQuery</h3>
+            <p class="jquery-page__hero-subtitle">Write less, do more</p>
+        </div>
+    </div>
+
+    <!--  -----  Intro  -----  -->
+    <section class="jquery-page__intro">
+        <p class="jquery-page__intro-text">
+            <strong>jQuery</strong> es una librería JavaScript rápida, ligera y repleta de funciones.
+            Simplifica el recorrido y manipulación del DOM, el manejo de eventos, las animaciones
+            y las peticiones AJAX con una API que funciona en todos los navegadores.
+        </p>
+        <p class="jquery-page__intro-text">
+            Lanzada en <strong>2006</strong> por John Resig, jQuery fue durante años la librería JavaScript
+            más utilizada del mundo. Aunque el JavaScript moderno (ES6+) ha reducido su necesidad,
+            jQuery sigue siendo clave para entender el ecosistema web, para trabajar con proyectos
+            legacy y como base de frameworks como <strong>jQuery UI</strong> y <strong>Bootstrap 3</strong>.
+        </p>
+    </section>
+
+    <!--  -----  Features  -----  -->
+    <section class="jquery-page__features">
+
+        <h3 class="jquery-page__features-title">Características Principales</h3>
+
+        <div class="jquery-page__features-grid">
+
+            <article class="jquery-page__feature">
+                <span class="jquery-page__feature-icon" aria-hidden="true">🔍</span>
+                <h4 class="jquery-page__feature-title">Selección del DOM</h4>
+                <p class="jquery-page__feature-text">
+                    El selector <code>$()</code> usa la misma sintaxis que los selectores CSS para encontrar
+                    elementos: <code>$('#id')</code>, <code>$('.clase')</code>,
+                    <code>$('div > p')</code>. Devuelve un objeto jQuery con todos los métodos disponibles.
+                </p>
+            </article>
+
+            <article class="jquery-page__feature">
+                <span class="jquery-page__feature-icon" aria-hidden="true">✏️</span>
+                <h4 class="jquery-page__feature-title">Manipulación del DOM</h4>
+                <p class="jquery-page__feature-text">
+                    Métodos como <code>.html()</code>, <code>.text()</code>, <code>.val()</code>,
+                    <code>.append()</code>, <code>.prepend()</code>, <code>.remove()</code> y
+                    <code>.addClass()</code> permiten modificar el contenido y los atributos
+                    del DOM de forma concisa.
+                </p>
+            </article>
+
+            <article class="jquery-page__feature">
+                <span class="jquery-page__feature-icon" aria-hidden="true">🖱️</span>
+                <h4 class="jquery-page__feature-title">Eventos</h4>
+                <p class="jquery-page__feature-text">
+                    <code>.on()</code>, <code>.off()</code> y <code>.trigger()</code> ofrecen un
+                    sistema de eventos unificado. El patrón <em>event delegation</em> con
+                    <code>$(parent).on('click', '.hijo', fn)</code> es especialmente potente
+                    para elementos dinámicos.
+                </p>
+            </article>
+
+            <article class="jquery-page__feature">
+                <span class="jquery-page__feature-icon" aria-hidden="true">✨</span>
+                <h4 class="jquery-page__feature-title">Animaciones</h4>
+                <p class="jquery-page__feature-text">
+                    Métodos como <code>.fadeIn()</code>, <code>.fadeOut()</code>,
+                    <code>.slideUp()</code>, <code>.slideDown()</code> y <code>.animate()</code>
+                    facilitan la creación de efectos visuales con control de duración,
+                    easing y callbacks al completarse.
+                </p>
+            </article>
+
+            <article class="jquery-page__feature">
+                <span class="jquery-page__feature-icon" aria-hidden="true">🌐</span>
+                <h4 class="jquery-page__feature-title">AJAX</h4>
+                <p class="jquery-page__feature-text">
+                    <code>$.ajax()</code>, <code>$.get()</code> y <code>$.post()</code> abstraen
+                    el <code>XMLHttpRequest</code> nativo, devolviendo un objeto <em>deferred</em>
+                    compatible con promesas para encadenar <code>.then()</code>, <code>.done()</code>
+                    y <code>.fail()</code>.
+                </p>
+            </article>
+
+            <article class="jquery-page__feature">
+                <span class="jquery-page__feature-icon" aria-hidden="true">🔗</span>
+                <h4 class="jquery-page__feature-title">Chaining</h4>
+                <p class="jquery-page__feature-text">
+                    La mayoría de los métodos jQuery devuelven el mismo objeto jQuery,
+                    permitiendo encadenar llamadas:
+                    <code>$('p').addClass('active').fadeIn(300).css('color', '#21759b')</code>,
+                    lo que hace el código más legible y compacto.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!--  -----  Métodos esenciales  -----  -->
+    <section class="jquery-page__tags-section">
+
+        <h3 class="jquery-page__tags-title">Métodos Esenciales</h3>
+
+        <ul class="jquery-page__tags">
+            <li class="jquery-page__tag">$(selector)</li>
+            <li class="jquery-page__tag">.ready()</li>
+            <li class="jquery-page__tag">.on()</li>
+            <li class="jquery-page__tag">.off()</li>
+            <li class="jquery-page__tag">.trigger()</li>
+            <li class="jquery-page__tag">.html()</li>
+            <li class="jquery-page__tag">.text()</li>
+            <li class="jquery-page__tag">.val()</li>
+            <li class="jquery-page__tag">.attr()</li>
+            <li class="jquery-page__tag">.css()</li>
+            <li class="jquery-page__tag">.addClass()</li>
+            <li class="jquery-page__tag">.removeClass()</li>
+            <li class="jquery-page__tag">.toggleClass()</li>
+            <li class="jquery-page__tag">.append()</li>
+            <li class="jquery-page__tag">.prepend()</li>
+            <li class="jquery-page__tag">.remove()</li>
+            <li class="jquery-page__tag">.find()</li>
+            <li class="jquery-page__tag">.filter()</li>
+            <li class="jquery-page__tag">.each()</li>
+            <li class="jquery-page__tag">.ajax()</li>
+            <li class="jquery-page__tag">.animate()</li>
+            <li class="jquery-page__tag">.fadeIn/Out()</li>
+            <li class="jquery-page__tag">.slideUp/Down()</li>
+        </ul>
+
+    </section>
+
+</div>

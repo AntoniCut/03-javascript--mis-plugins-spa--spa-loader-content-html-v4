@@ -1,0 +1,67 @@
+<!--
+    *  -----  /home-demo.html  --  /src/pages-components/home-demo.html  -----
+-->
+
+
+<div class="home-demo">
+
+
+    <!--  -----  Hero  -----  -->
+    <div class="home-page__hero">
+        <div class="home-page__hero-badge">
+            <span class="home-page__hero-tag" aria-hidden="true">SPA</span>
+            <h3 class="home-page__hero-title">spa-loader-content-html</h3>
+            <p class="home-page__hero-subtitle">Demo de scripts SPA V3.1</p>
+        </div>
+    </div>
+
+
+    <!--  -----  Intro  -----  -->
+    <section class="home-page__intro">
+        <p class="home-page__intro-text">
+            Este componente se inyecta con <strong>pagesComponents</strong> del plugin
+            <strong>spa-loader-content-html v3.1</strong>. Los scripts de la ruta se cargan
+            en la <strong>Fase 3</strong> (después de la View Transition), cuando el DOM ya
+            está mutado y los contenedores destino existen.
+        </p>
+    </section>
+
+
+    <!--  -----  Demo CJS  -----  -->
+    <section class="home-page__features" data-home-demo="cjs">
+
+        <h3 class="home-page__features-title">Demo Scripts CJS</h3>
+
+        <p class="home-page__intro-text" data-home-demo-status="cjs">
+            Esperando <code>home.cjs.js</code>…
+        </p>
+
+        <div class="home-page__features-grid" data-home-demo-target="cjs"></div>
+
+    </section>
+
+
+    <!--  -----  Demo ESM  -----  -->
+    <section class="home-page__features" data-home-demo="esm">
+
+        <h3 class="home-page__features-title">Demo Scripts ESM</h3>
+
+        <p class="home-page__intro-text" data-home-demo-status="esm">
+            Esperando <code>home.esm.js</code>…
+        </p>
+
+        <div class="home-page__features-grid" data-home-demo-target="esm"></div>
+
+    </section>
+
+
+    <!--  -----  Tags / conceptos (renderizados por ESM)  -----  -->
+    <section class="home-page__tags-section">
+
+        <h3 class="home-page__tags-title">Eventos SPA renderizados por ESM</h3>
+
+        <ul class="home-page__tags" data-home-demo-target="tags"></ul>
+
+    </section>
+
+</div>

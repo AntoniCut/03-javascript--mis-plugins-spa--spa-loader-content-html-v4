@@ -1,0 +1,67 @@
+<!--
+    *  -----  /jquery-demo.html  --  /src/pages-components/jquery/jquery-demo.html  -----
+-->
+
+
+<div class="jquery-demo">
+
+
+    <!--  -----  Hero  -----  -->
+    <div class="jquery-page__hero">
+        <div class="jquery-page__hero-badge">
+            <span class="jquery-page__hero-tag" aria-hidden="true">$</span>
+            <h3 class="jquery-page__hero-title">jQuery</h3>
+            <p class="jquery-page__hero-subtitle">Demo de scripts SPA V3.1</p>
+        </div>
+    </div>
+
+
+    <!--  -----  Intro  -----  -->
+    <section class="jquery-page__intro">
+        <p class="jquery-page__intro-text">
+            Este componente se inyecta con <strong>pagesComponents</strong> del plugin
+            <strong>spa-loader-content-html v3.1</strong>. Los scripts de la ruta se cargan
+            en la <strong>Fase 3</strong> (después de la View Transition), cuando el DOM ya
+            está mutado y los contenedores destino existen.
+        </p>
+    </section>
+
+
+    <!--  -----  Demo CJS  -----  -->
+    <section class="jquery-page__features" data-jquery-demo="cjs">
+
+        <h3 class="jquery-page__features-title">Demo Scripts CJS</h3>
+
+        <p class="jquery-page__intro-text" data-jquery-demo-status="cjs">
+            Esperando <code>jquery-page.cjs.js</code>…
+        </p>
+
+        <div class="jquery-page__features-grid" data-jquery-demo-target="cjs"></div>
+
+    </section>
+
+
+    <!--  -----  Demo ESM  -----  -->
+    <section class="jquery-page__features" data-jquery-demo="esm">
+
+        <h3 class="jquery-page__features-title">Demo Scripts ESM</h3>
+
+        <p class="jquery-page__intro-text" data-jquery-demo-status="esm">
+            Esperando <code>jquery-page.esm.js</code>…
+        </p>
+
+        <div class="jquery-page__features-grid" data-jquery-demo-target="esm"></div>
+
+    </section>
+
+
+    <!--  -----  Tags / conceptos (renderizados por ESM)  -----  -->
+    <section class="jquery-page__tags-section">
+
+        <h3 class="jquery-page__tags-title">Métodos jQuery renderizados por ESM</h3>
+
+        <ul class="jquery-page__tags" data-jquery-demo-target="tags"></ul>
+
+    </section>
+
+</div>

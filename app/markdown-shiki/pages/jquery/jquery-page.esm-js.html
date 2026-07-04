@@ -1,0 +1,251 @@
+<pre class="shiki dark-plus" style="background-color:#1E1E1E;color:#D4D4D4" tabindex="0"><code><span class="line"><span style="color:#6A9955">/** Versión del módulo */</span></span>
+<span class="line"><span style="color:#C586C0">export</span><span style="color:#569CD6"> const</span><span style="color:#4FC1FF"> VERSION</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'1.0.0'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/** Nombre del plugin SPA */</span></span>
+<span class="line"><span style="color:#C586C0">export</span><span style="color:#569CD6"> const</span><span style="color:#4FC1FF"> PLUGIN_NAME</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'spa-loader-content-html'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/** Versión del plugin SPA usada en la demo */</span></span>
+<span class="line"><span style="color:#C586C0">export</span><span style="color:#569CD6"> const</span><span style="color:#4FC1FF"> PLUGIN_VERSION</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'3.1'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/** Etiquetas / conceptos renderizados por ESM */</span></span>
+<span class="line"><span style="color:#C586C0">export</span><span style="color:#569CD6"> const</span><span style="color:#4FC1FF"> PAGE_TAGS</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">Object</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">freeze</span><span style="color:#D4D4D4">([</span></span>
+<span class="line"><span style="color:#CE9178">    "$()"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">    ".on()"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">    ".html()"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">    ".addClass()"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">    ".fadeIn()"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">    ".ajax()"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">    ".each()"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">    ".find()"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">    ".append()"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">    ".remove()"</span></span>
+<span class="line"><span style="color:#D4D4D4">]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/** Características demo renderizadas por ESM */</span></span>
+<span class="line"><span style="color:#C586C0">export</span><span style="color:#569CD6"> const</span><span style="color:#4FC1FF"> PAGE_ESM_FEATURES</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">Object</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">freeze</span><span style="color:#D4D4D4">([</span></span>
+<span class="line"><span style="color:#D4D4D4">    {</span></span>
+<span class="line"><span style="color:#CE9178">        "icon"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> "🌐"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">        "title"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> "Vanilla helpers"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">        "text"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> "Helpers ESM que replican utilidades jQuery sin dependencias."</span></span>
+<span class="line"><span style="color:#D4D4D4">    },</span></span>
+<span class="line"><span style="color:#D4D4D4">    {</span></span>
+<span class="line"><span style="color:#CE9178">        "icon"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> "🔄"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">        "title"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> "Fase 3 del plugin"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">        "text"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> "DOM mutado antes de ejecutar los scripts de la ruta."</span></span>
+<span class="line"><span style="color:#D4D4D4">    },</span></span>
+<span class="line"><span style="color:#D4D4D4">    {</span></span>
+<span class="line"><span style="color:#CE9178">        "icon"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> "📡"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">        "title"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> "Evento spa:route-loaded"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">        "text"</span><span style="color:#9CDCFE">:</span><span style="color:#CE9178"> "Integración con spa:route-loaded del plugin V3.1."</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"><span style="color:#D4D4D4">]);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">//*  -----  Funciones exportadas  -----</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/**</span></span>
+<span class="line"><span style="color:#6A9955"> * -----------------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955"> * -----  `createFeatureArticle({ icon, title, text })`  -----</span></span>
+<span class="line"><span style="color:#6A9955"> * -----------------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955"> * - Crea una tarjeta de feature para el grid del demo.</span></span>
+<span class="line"><span style="color:#6A9955"> * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {PageFeature}</span><span style="color:#9CDCFE"> feature</span><span style="color:#6A9955"> - Característica a renderizar</span></span>
+<span class="line"><span style="color:#6A9955"> * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {HTMLElement}</span><span style="color:#6A9955"> - Tarjeta de feature creada</span></span>
+<span class="line"><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#C586C0">export</span><span style="color:#569CD6"> const</span><span style="color:#DCDCAA"> createFeatureArticle</span><span style="color:#D4D4D4"> = ({ </span><span style="color:#9CDCFE">icon</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">title</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">text</span><span style="color:#D4D4D4"> }) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {HTMLArticleElement}</span><span style="color:#6A9955"> - Tarjeta de feature creada */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> article</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">createElement</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'article'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    article</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">className</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'jquery-page__feature'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    article</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">innerHTML</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;span class="jquery-page__feature-icon" aria-hidden="true"></span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">icon</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/span></span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;h4 class="jquery-page__feature-title"></span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">title</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/h4></span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;p class="jquery-page__feature-text"></span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">text</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/p></span></span>
+<span class="line"><span style="color:#CE9178">    `</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    return</span><span style="color:#9CDCFE"> article</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">};</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/**</span></span>
+<span class="line"><span style="color:#6A9955"> * ---------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955"> * -----  `createTagItem(label)`  -----</span></span>
+<span class="line"><span style="color:#6A9955"> * ---------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955"> * - Crea un ítem de lista para tags o conceptos.</span></span>
+<span class="line"><span style="color:#6A9955"> * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> label</span><span style="color:#6A9955"> - Texto del ítem</span></span>
+<span class="line"><span style="color:#6A9955"> * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {HTMLLIElement}</span><span style="color:#6A9955"> - Ítem de lista creado</span></span>
+<span class="line"><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#C586C0">export</span><span style="color:#569CD6"> const</span><span style="color:#DCDCAA"> createTagItem</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">label</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {HTMLLIElement}</span><span style="color:#6A9955"> - Ítem de lista creado */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> item</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">createElement</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'li'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    item</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">className</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'jquery-page__tag'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    item</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">textContent</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">label</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    item</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">title</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">label</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    return</span><span style="color:#9CDCFE"> item</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">};</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/**</span></span>
+<span class="line"><span style="color:#6A9955"> * ------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955"> * -----  `setDemoStatus(statusEl, message)`  -----</span></span>
+<span class="line"><span style="color:#6A9955"> * ------------------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955"> * - Actualiza el mensaje de estado del bloque ESM.</span></span>
+<span class="line"><span style="color:#6A9955"> * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {Element|null}</span><span style="color:#9CDCFE"> statusEl</span><span style="color:#6A9955"> - Elemento de estado</span></span>
+<span class="line"><span style="color:#6A9955"> * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {string}</span><span style="color:#9CDCFE"> message</span><span style="color:#6A9955"> - Mensaje de estado</span></span>
+<span class="line"><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#C586C0">export</span><span style="color:#569CD6"> const</span><span style="color:#DCDCAA"> setDemoStatus</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">statusEl</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">message</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">statusEl</span><span style="color:#D4D4D4">)</span></span>
+<span class="line"><span style="color:#C586C0">        return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    statusEl</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">textContent</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">message</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">};</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/**</span></span>
+<span class="line"><span style="color:#6A9955"> * ---------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955"> * -----  `createRouteLoadedCard()`  -----</span></span>
+<span class="line"><span style="color:#6A9955"> * ---------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955"> * - Tarjeta que escucha spa:route-loaded y muestra el id de la ruta activa.</span></span>
+<span class="line"><span style="color:#6A9955"> * </span><span style="color:#569CD6">@returns</span><span style="color:#4EC9B0"> {HTMLElement}</span><span style="color:#6A9955"> - Tarjeta de integración SPA creada</span></span>
+<span class="line"><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#569CD6">const</span><span style="color:#DCDCAA"> createRouteLoadedCard</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {HTMLArticleElement}</span><span style="color:#6A9955"> - Tarjeta de integración SPA creada */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> article</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">createElement</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'article'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    article</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">className</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'jquery-page__feature'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {HTMLParagraphElement}</span><span style="color:#6A9955"> - Salida de texto del evento */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> output</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">createElement</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'p'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    output</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">className</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'jquery-page__feature-text'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    output</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">innerHTML</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">'Esperando evento &#x3C;code>spa:route-loaded&#x3C;/code>…'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /**</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * -----  `onRouteLoaded(event)`  -----</span></span>
+<span class="line"><span style="color:#6A9955">     * ------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955">     * - Actualiza la tarjeta con el id de la ruta emitida por el plugin.</span></span>
+<span class="line"><span style="color:#6A9955">     * </span><span style="color:#569CD6">@param</span><span style="color:#4EC9B0"> {Event}</span><span style="color:#9CDCFE"> event</span><span style="color:#6A9955"> - Evento spa:route-loaded</span></span>
+<span class="line"><span style="color:#6A9955">     */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#DCDCAA"> onRouteLoaded</span><span style="color:#D4D4D4"> = (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {RouteLoadedDetail}</span><span style="color:#6A9955"> - Detalle del evento spa:route-loaded */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> detail</span><span style="color:#D4D4D4"> = </span><span style="color:#6A9955">/** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {CustomEvent&#x3C;RouteLoadedDetail>}</span><span style="color:#6A9955"> */</span><span style="color:#D4D4D4"> (</span><span style="color:#9CDCFE">event</span><span style="color:#D4D4D4">).</span><span style="color:#9CDCFE">detail</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">        /** </span><span style="color:#569CD6">@type</span><span style="color:#4EC9B0"> {string}</span><span style="color:#6A9955"> - Id de la ruta activa */</span></span>
+<span class="line"><span style="color:#569CD6">        const</span><span style="color:#4FC1FF"> routeId</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">detail</span><span style="color:#D4D4D4">?.</span><span style="color:#9CDCFE">route</span><span style="color:#D4D4D4">?.</span><span style="color:#9CDCFE">id</span><span style="color:#D4D4D4"> ?? </span><span style="color:#CE9178">'desconocida'</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">        output</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">innerHTML</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">`Evento recibido: ruta activa &#x3C;code></span><span style="color:#569CD6">${</span><span style="color:#9CDCFE">routeId</span><span style="color:#569CD6">}</span><span style="color:#CE9178">&#x3C;/code>`</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">addEventListener</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'spa:route-loaded'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">onRouteLoaded</span><span style="color:#D4D4D4">, { </span><span style="color:#9CDCFE">once:</span><span style="color:#569CD6"> true</span><span style="color:#D4D4D4"> });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    article</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">innerHTML</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;span class="jquery-page__feature-icon" aria-hidden="true">📡&#x3C;/span></span></span>
+<span class="line"><span style="color:#CE9178">        &#x3C;h4 class="jquery-page__feature-title">Integración SPA&#x3C;/h4></span></span>
+<span class="line"><span style="color:#CE9178">    `</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#9CDCFE">    article</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">appendChild</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">output</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    return</span><span style="color:#9CDCFE"> article</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">};</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/**</span></span>
+<span class="line"><span style="color:#6A9955"> * ------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955"> * -----  `renderPageDemoEsm()`  -----</span></span>
+<span class="line"><span style="color:#6A9955"> * ------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955"> * - Renderiza las tarjetas ESM en jquery-demo.html.</span></span>
+<span class="line"><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#C586C0">export</span><span style="color:#569CD6"> const</span><span style="color:#DCDCAA"> renderPageDemoEsm</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** - Contenedor de las tarjetas ESM */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> target</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">querySelector</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'[data-jquery-demo-target="esm"]'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** - Elemento de estado */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> status</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">querySelector</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'[data-jquery-demo-status="esm"]'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">target</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'⚠️ jquery-page.esm.js: contenedor [data-jquery-demo-target="esm"] no encontrado.'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">        return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** - Fragmento de documento para insertar las tarjetas ESM */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> fragment</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">createDocumentFragment</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4FC1FF">    PAGE_ESM_FEATURES</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">forEach</span><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">feature</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        fragment</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">appendChild</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">createFeatureArticle</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">feature</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    fragment</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">appendChild</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">createRouteLoadedCard</span><span style="color:#D4D4D4">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    target</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">replaceChildren</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">fragment</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">    setDemoStatus</span><span style="color:#D4D4D4">(</span></span>
+<span class="line"><span style="color:#9CDCFE">        status</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#CE9178">        `Renderizado con jquery-page.esm.js (ESM) · </span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">PLUGIN_NAME</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> v</span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">PLUGIN_VERSION</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> · v</span><span style="color:#569CD6">${</span><span style="color:#4FC1FF">VERSION</span><span style="color:#569CD6">}</span><span style="color:#CE9178"> · </span><span style="color:#569CD6">${</span><span style="color:#569CD6">new</span><span style="color:#DCDCAA"> Date</span><span style="color:#D4D4D4">().</span><span style="color:#DCDCAA">toLocaleTimeString</span><span style="color:#D4D4D4">()</span><span style="color:#569CD6">}</span><span style="color:#CE9178">`</span></span>
+<span class="line"><span style="color:#D4D4D4">    );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'-----  jquery-page.esm.js  -----  ES Module  -----'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#9CDCFE">    console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">log</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'Tarjetas ESM:'</span><span style="color:#D4D4D4">, </span><span style="color:#4FC1FF">PAGE_ESM_FEATURES</span><span style="color:#D4D4D4">.</span><span style="color:#9CDCFE">length</span><span style="color:#D4D4D4"> + </span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">};</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">/**</span></span>
+<span class="line"><span style="color:#6A9955"> * ----------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955"> * -----  `renderPageTags()`  -----</span></span>
+<span class="line"><span style="color:#6A9955"> * ----------------------------------------</span></span>
+<span class="line"><span style="color:#6A9955"> * - Renderiza tags o conceptos en la lista del demo.</span></span>
+<span class="line"><span style="color:#6A9955"> */</span></span>
+<span class="line"><span style="color:#C586C0">export</span><span style="color:#569CD6"> const</span><span style="color:#DCDCAA"> renderPageTags</span><span style="color:#D4D4D4"> = () </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** - Contenedor de tags / conceptos */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> target</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">querySelector</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'[data-jquery-demo-target="tags"]'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">    if</span><span style="color:#D4D4D4"> (!</span><span style="color:#9CDCFE">target</span><span style="color:#D4D4D4">) {</span></span>
+<span class="line"><span style="color:#9CDCFE">        console</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">warn</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'⚠️ jquery-page.esm.js: contenedor [data-jquery-demo-target="tags"] no encontrado.'</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#C586C0">        return</span><span style="color:#D4D4D4">;</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">    /** - Fragmento de documento para insertar los ítems */</span></span>
+<span class="line"><span style="color:#569CD6">    const</span><span style="color:#4FC1FF"> fragment</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">document</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">createDocumentFragment</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4FC1FF">    PAGE_TAGS</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">forEach</span><span style="color:#D4D4D4">((</span><span style="color:#9CDCFE">label</span><span style="color:#D4D4D4">) </span><span style="color:#569CD6">=></span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">        fragment</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">appendChild</span><span style="color:#D4D4D4">(</span><span style="color:#DCDCAA">createTagItem</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">label</span><span style="color:#D4D4D4">));</span></span>
+<span class="line"><span style="color:#D4D4D4">    });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#9CDCFE">    target</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">replaceChildren</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">fragment</span><span style="color:#D4D4D4">);</span></span>
+<span class="line"><span style="color:#D4D4D4">};</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">//  -----  Inicialización del demo (Fase 3 — DOM ya mutado)  -----</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DCDCAA">renderPageDemoEsm</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"><span style="color:#DCDCAA">renderPageTags</span><span style="color:#D4D4D4">();</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A9955">//  -----  Export default  -----</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C586C0">export</span><span style="color:#C586C0"> default</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#9CDCFE">    VERSION</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    PLUGIN_NAME</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    PLUGIN_VERSION</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    PAGE_TAGS</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    PAGE_ESM_FEATURES</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    createFeatureArticle</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    createTagItem</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    setDemoStatus</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    renderPageDemoEsm</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    renderPageTags</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#D4D4D4">};</span></span>
+<span class="line"></span></code></pre>

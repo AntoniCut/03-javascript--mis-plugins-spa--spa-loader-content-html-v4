@@ -1,0 +1,137 @@
+/*
+    *  ----------------------------------------------------------------------------------------------  *
+    *  -----  /_layout-footer.scss  --  /src/styles/scss/components/layout/_layout-footer.scss  -----  *
+    *  ----------------------------------------------------------------------------------------------  *
+*/
+
+@use '../../base/variables' as var;
+@use '../../base/mixins' as mix;
+
+
+.layout__footer {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+
+//  -----  Footer Container  -----
+
+.footer__container {
+    width: 100vw;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+
+    background-color: var.$bg-dark-footer;
+    background-image: var.$bg-grid-pattern-footer;
+    background-size: var.$bg-grid-size-32x32;
+    background-repeat: repeat;
+
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+//  -----  Footer Header  -----
+//  Los estilos del footer header están definidos en _layout-header.scss
+//  ya que reutiliza las mismas clases (.header__container, .header__brand, etc.)
+
+.footer__header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+//  -----  Footer Main  -----
+
+.footer__main {
+
+    position: relative;
+    max-width: 120rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    align-items: start;
+
+    @include mix.tablet {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem 5rem;
+    }
+
+    @include mix.desktopSM {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+//  -----  Footer List  -----
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1rem 1rem 2rem;
+}
+
+
+//  -----  Footer List Title  -----
+
+.footer__list-title {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+
+    font-size: 1.2rem;
+    color: #fff;
+
+    border-bottom: 1px solid white;
+}
+
+.item__link-title {
+    font-weight: bold;
+}
+
+
+//  -----  Footer Items  -----
+
+.footer__item {
+    width: 100%;
+}
+
+.footer__item a {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+
+    font-size: 1rem;
+    color: #f5e3e3;
+
+    transition: all 300ms ease-in-out;
+
+    &:hover {
+        padding-left: 3rem;
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+
+//  -----  Footer List Separator  -----
+
+.footer__list-separator {
+    width: 100%;
+    height: 0.1rem;
+    margin-top: auto;
+    background-color: #E6EBF1;
+}

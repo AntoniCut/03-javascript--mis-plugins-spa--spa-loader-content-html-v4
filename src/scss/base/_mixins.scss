@@ -1,0 +1,46 @@
+/*
+    *  -------------------------------------------------------------------  *
+    *  -----  /_mixins.scss  --  /src/styles/scss/base/_mixins.scss  -----  *
+    *  -------------------------------------------------------------------  *
+*/
+
+@use './_variables' as var;
+
+//  -----  mixin - mobile - @media(min-width: 480px)  -----
+@mixin mobile {
+    @media(min-width: var.$mobile) {
+        @content;
+    }
+}
+
+
+//  -----  mixin - tablet - @media(min-width: 768px)  -----
+@mixin tablet {
+    @media(min-width: var.$tablet) {
+        @content;
+    }
+}
+
+
+//  -----  mixin - desktopSM - @media(min-width: 1024px)  -----
+@mixin desktopSM {
+    @media(min-width: var.$desktop-sm) {
+        @content;
+    }
+}
+
+
+//  -----  mixin - desktop - @media(min-width: 1200px)  -----
+@mixin desktop {
+    @media(min-width: var.$desktop) {
+        @content;
+    }
+}
+
+
+//  -----  mixin - desktopLG - @media(min-width: 1400px)  -----
+@mixin desktopLG {
+    @media(min-width: var.$desktop-lg) {
+        @content;
+    }
+}
