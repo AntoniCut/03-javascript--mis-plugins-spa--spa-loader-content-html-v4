@@ -10,7 +10,7 @@ const { favicon, layoutHeader, layoutNavbar, pages, pagesComponents, MarkdownShi
 export const route00Home = {
     id: 'home',
     favicon: `${favicon}/javascript-favicon.ico`,
-    pageTitle: 'spa-loader-content-html — Plugin SPA v4',
+    pageTitle: 'jquery.spa-with-method-load-from-jquery-v5 — Plugin SPA v5',
     path: '',
     components: {
         "layoutHeader": `${layoutHeader}`,
@@ -26,17 +26,17 @@ export const route00Home = {
         {
             fileName: 'spa-loader-content-html-js.html',
             fileExtension: 'js',
-            urlInput: `${pluginsSource}/spa-loader-content-html/v4/spa-loader-content-html.js`,
+            urlInput: `${pluginsSource}/spa-loader-content-html/v5/spa-loader-content-html.js`,
             urlOutput: `${MarkdownShikiHtml}/plugins/v4`,
             target: '[data-shiki="plugins"]',
         },
     ],
-    headerTitle: 'spa-loader-content-html — Plugin SPA v4',
+    headerTitle: 'jquery.spa-with-method-load-from-jquery-v5 — Plugin SPA v5',
     styles: [
         { href: `${styles}/home.css` }
     ],
     scripts: [
-        { src: `${scripts}/js/pages/home.cjs.js` },
-        { src: `${scripts}/js/pages/home.esm.js`, isModule: true },
+        { src: `${scripts}/pages/home.cjs.js` },
+        { src: `${scripts}/pages/home.esm.js`, isModule: true },
     ]
 };

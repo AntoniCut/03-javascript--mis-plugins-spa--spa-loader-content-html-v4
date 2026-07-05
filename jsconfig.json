@@ -9,11 +9,8 @@
             "ES2022",
             "DOM"
         ],
-        "moduleResolution": "bundler",
-        "baseUrl": ".",
-        "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true,
-        "noEmit": true
+        "moduleResolution": "bundler"
+        
     },
     "include": [
         "types",
